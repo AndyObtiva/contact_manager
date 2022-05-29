@@ -1,9 +1,9 @@
-contact_manager===================
+# Contact Manager
+## Glimmer Application
 
-Description goes here.
+Contact Manager is a Glimmer DSL for SWT sample leveraging SQLite DB using ActiveRecord.
 
-Contributing to contact_manager
-------------------------------------------
+## Contributing
 
 -   Check out the latest master to make sure the feature hasn't been
     implemented or the bug hasn't been fixed yet.
@@ -19,8 +19,8 @@ Contributing to contact_manager
     is fine, but please isolate to its own commit so I can cherry-pick
     around it.
 
-Copyright
----------
+## Copyright
 
-Copyright (c) 2022 Andy Maleh. See
-LICENSE.txt for further details.
+[MIT](LICENSE.txt)
+
+Copyright (c) 2022 Andy Maleh. See [LICENSE.txt](LICENSE.txt) for further details.
