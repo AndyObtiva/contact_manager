@@ -1,17 +1,13 @@
 require 'contact_manager/view/contact_manager_menu_bar'
 require 'contact_manager/view/contact_form'
+require 'contact_manager/view/contact_table'
 
 class ContactManager
   module View
     class AppView
       include Glimmer::UI::CustomShell
-    
+      
       before_body do
-        contacts = @contacts = Contact.all
-        Contact.after_commit(on: [:create, :update, :destroy]) do
-          contacts.reload
-        end
-        
         Display.app_name = 'Contact Manager'
         Display.app_version = VERSION
         @display = display {
@@ -39,6 +35,15 @@ class ContactManager
             layout_data {
               horizontal_alignment :fill
               grab_excess_horizontal_space true
+            }
+          }
+          
+          contact_table {
+            layout_data {
+              horizontal_alignment :fill
+              grab_excess_horizontal_space true
+              vertical_alignment :fill
+              grab_excess_vertical_space true
             }
           }
         }

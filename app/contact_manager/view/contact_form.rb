@@ -6,7 +6,7 @@ class ContactManager
       attr_accessor :contact
       
       before_body do
-        @contact = Contact.new
+        self.contact = Contact.new
       end
       
       body {

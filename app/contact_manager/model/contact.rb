@@ -5,6 +5,10 @@ class Contact < ActiveRecord::Base
   validates :phone, format: {with: /\A[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*\z/, message: 'must be a valid phone number'}, allow_blank: true
   validate :email_or_phone_is_present
   
+  def address
+    [street, city, state_or_province, zip_or_postal_code, country].compact.join(', ')
+  end
+  
   private
   
   def email_or_phone_is_present
