@@ -3,11 +3,7 @@ class ContactManager
     class ContactForm
       include Glimmer::UI::CustomWidget
       
-      attr_accessor :contact
-      
-      before_body do
-        self.contact = Contact.new
-      end
+      options :contact_presenter
       
       body {
         composite {
@@ -96,7 +92,7 @@ class ContactManager
           
           # use nested data-binding to monitor change of contact
           # in addition to contact field
-          text <=> [self, "contact.#{field}"]
+          text <=> [contact_presenter, "current_contact.#{field}"]
           
           on_key_pressed do |event|
             save_contact if event.keyCode == swt(:cr)
@@ -105,14 +101,13 @@ class ContactManager
       end
       
       def save_contact
-        if contact.save
-          self.contact = Contact.new
-          self.contact.attributes.keys.each do |attribute_name|
+        if contact_presenter.save_current_contact
+          contact_presenter.current_contact.attributes.keys.each do |attribute_name|
             @form_field_labels[attribute_name.to_sym]&.foreground = :black
             @form_field_labels[attribute_name.to_sym]&.tool_tip_text = nil
           end
         else
-          contact.errors.errors.each do |error|
+          contact_presenter.current_contact.errors.errors.each do |error|
             @form_field_labels[error.attribute].foreground = :red
             @form_field_labels[error.attribute].tool_tip_text = error.full_message
           end

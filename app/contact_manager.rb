@@ -20,4 +20,5 @@ end
 
 require 'db/db'
 require 'contact_manager/model/contact'
+require 'contact_manager/model/contact_presenter'
 require 'contact_manager/view/app_view'

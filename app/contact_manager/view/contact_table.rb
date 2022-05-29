@@ -3,20 +3,8 @@ class ContactManager
     class ContactTable
       include Glimmer::UI::CustomWidget
       
-      attr_accessor :contacts, :query
-    
-      before_body do
-        self.contacts = Contact.all
-        
-        # Monitor Contact collection changes
-        # the after_commit hook executes the block under a different object
-        # binding, so we must use `this` to access self
-        this = self
-        Contact.after_commit(on: [:create, :update, :destroy]) do
-          this.contacts = Contact.all
-        end
-      end
-            
+      options :contact_presenter
+      
       body {
         composite {
           grid_layout
@@ -27,23 +15,7 @@ class ContactManager
               grab_excess_horizontal_space true
             }
             
-            text <=> [self, :query,
-              after_write: ->(query_value) {
-                if query_value.present?
-                  attribute_names = Contact.new.attributes.keys
-                  conditions = attribute_names.reduce('') do |conditions, attribute|
-                    if conditions.blank?
-                      conditions += "lower(#{attribute}) like ?"
-                    else
-                      conditions += " OR lower(#{attribute}) like ?"
-                    end
-                  end
-                  self.contacts = Contact.where(conditions, *(["%#{query_value.downcase}%"]*attribute_names.count))
-                else
-                  self.contacts = Contact.all
-                end
-              }
-            ]
+            text <=> [contact_presenter, :query]
           }
           
           table {
@@ -70,9 +42,12 @@ class ContactManager
             
             # Ensure converting to Array on read because contacts is an ActiveRecord collection,
             # but an Array object is required by Glimmer DSL for SWT table data-binding logic
-            items <= [self, :contacts, on_read: :to_a, column_properties: [:first_name, :last_name, :email, :phone, :address]]
+            items <= [contact_presenter, :contacts, on_read: :to_a, column_properties: [:first_name, :last_name, :email, :phone, :address]]
             
             # TODO bind selection to loading and editing via form
+            # do so by refactoring to use a ContactPresenter shared with both ContactForm and ContactTable
+            
+            # TODO implement right click menu for delete contact
           }
         }
       }

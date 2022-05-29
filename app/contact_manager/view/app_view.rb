@@ -8,6 +8,8 @@ class ContactManager
       include Glimmer::UI::CustomShell
       
       before_body do
+        @contact_presenter = ContactPresenter.new
+        
         Display.app_name = 'Contact Manager'
         Display.app_version = VERSION
         @display = display {
@@ -31,14 +33,14 @@ class ContactManager
         
           contact_manager_menu_bar(about_action: method(:display_about_dialog))
         
-          contact_form {
+          contact_form(contact_presenter: @contact_presenter) {
             layout_data {
               horizontal_alignment :fill
               grab_excess_horizontal_space true
             }
           }
           
-          contact_table {
+          contact_table(contact_presenter: @contact_presenter) {
             layout_data {
               horizontal_alignment :fill
               grab_excess_horizontal_space true
