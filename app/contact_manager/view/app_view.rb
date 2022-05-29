@@ -1,3 +1,5 @@
+require 'contact_manager/model/contact_presenter'
+
 require 'contact_manager/view/contact_manager_menu_bar'
 require 'contact_manager/view/contact_form'
 require 'contact_manager/view/contact_table'

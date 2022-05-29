@@ -1,3 +1,6 @@
+require 'contact_manager/model/contact'
+require 'contact_manager/model/contact_repository'
+
 # ContactPresenter is an enhanced Controller that also
 # enables bidirectional data-binding of contact attributes
 class ContactPresenter
@@ -5,32 +8,20 @@ class ContactPresenter
   
   def initialize
     self.current_contact = Contact.new
-    self.contacts = Contact.all
+    self.contacts = ContactRepository.instance.all
     
     # Monitor Contact collection changes
     # the after_commit hook executes the block under a different object
     # binding, so we must use `this` to access self
     this = self
     Contact.after_commit(on: [:create, :update, :destroy]) do
-      this.contacts = Contact.all
+      this.contacts = ContactRepository.instance.all
     end
   end
   
   def query=(query_value)
     @query = query_value
-    if query_value.present?
-      attribute_names = Contact.new.attributes.keys
-      conditions = attribute_names.reduce('') do |conditions, attribute|
-        if conditions.blank?
-          conditions += "lower(#{attribute}) like ?"
-        else
-          conditions += " OR lower(#{attribute}) like ?"
-        end
-      end
-      self.contacts = Contact.where(conditions, *(["%#{query_value.downcase}%"]*attribute_names.count))
-    else
-      self.contacts = Contact.all
-    end
+    self.contacts = ContactRepository.instance.search(query_value)
   end
   
   def save_current_contact
