@@ -33,19 +33,29 @@ class ContactManager
             form_field(:zip_or_postal_code)
           }
           
-          button {
+          composite { # having a composite ensures padding around button
             layout_data {
               horizontal_span 2
               horizontal_alignment :fill
               grab_excess_horizontal_space true
             }
             
-            text 'Save Contact'
+            grid_layout {
+              margin_height 0
+            }
             
-            on_widget_selected do
-              contact.save! # TODO avoid bang and show errors when they occur
-              self.contact = Contact.new
-            end
+            button {
+              layout_data {
+                horizontal_alignment :fill
+                grab_excess_horizontal_space true
+              }
+              
+              text 'Save Contact'
+              
+              on_widget_selected do
+                save_contact
+              end
+            }
           }
         }
       }
@@ -69,7 +79,8 @@ class ContactManager
       end
       
       def form_field(field)
-        label {
+        @form_field_labels ||= {}
+        @form_field_labels[field] = label {
           layout_data {
             width_hint 120
           }
@@ -86,7 +97,26 @@ class ContactManager
           # use nested data-binding to monitor change of contact
           # in addition to contact field
           text <=> [self, "contact.#{field}"]
+          
+          on_key_pressed do |event|
+            save_contact if event.keyCode == swt(:cr)
+          end
         }
+      end
+      
+      def save_contact
+        if contact.save
+          self.contact = Contact.new
+          self.contact.attributes.keys.each do |attribute_name|
+            @form_field_labels[attribute_name.to_sym]&.foreground = :black
+            @form_field_labels[attribute_name.to_sym]&.tool_tip_text = nil
+          end
+        else
+          contact.errors.errors.each do |error|
+            @form_field_labels[error.attribute].foreground = :red
+            @form_field_labels[error.attribute].tool_tip_text = error.full_message
+          end
+        end
       end
     end
   end

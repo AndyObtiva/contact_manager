@@ -13,8 +13,8 @@ class Contact < ActiveRecord::Base
   
   def email_or_phone_is_present
     if email.blank? && phone.blank?
-      errors[:email] << 'must be present unless phone is present'
-      errors[:phone] << 'must be present unless email is present'
+      errors.add(:email, 'must be present unless phone is present')
+      errors.add(:phone, 'must be present unless email is present')
     end
   end
 end
