@@ -25,8 +25,8 @@ class ContactManager
             form_field(:street)
             form_field(:city)
             form_field(:state_or_province)
-            form_field(:country)
             form_field(:zip_or_postal_code)
+            form_field(:country)
           }
           
           composite { # having a composite ensures padding around button

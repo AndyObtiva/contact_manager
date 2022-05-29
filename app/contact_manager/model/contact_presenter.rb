@@ -38,4 +38,11 @@ class ContactPresenter
       self.current_contact = Contact.new if contact
     end
   end
+  
+  def destroy_current_contact
+    if current_contact&.persisted?
+      current_contact.destroy
+      self.current_contact = Contact.new
+    end
+  end
 end

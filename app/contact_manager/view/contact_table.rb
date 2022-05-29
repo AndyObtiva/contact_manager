@@ -19,6 +19,14 @@ class ContactManager
           }
           
           table {
+            layout_data {
+              height_hint 250
+              horizontal_alignment :fill
+              grab_excess_horizontal_space true
+              vertical_alignment :fill
+              grab_excess_vertical_space true
+            }
+            
             table_column {
               text 'First Name'
               width 120
@@ -29,7 +37,7 @@ class ContactManager
             }
             table_column {
               text 'Email'
-              width 150
+              width 180
             }
             table_column {
               text 'Phone'
@@ -44,10 +52,17 @@ class ContactManager
             # but an Array object is required by Glimmer DSL for SWT table data-binding logic
             items <= [contact_presenter, :contacts, on_read: :to_a, column_properties: [:first_name, :last_name, :email, :phone, :address]]
             
-            # TODO bind selection to loading and editing via form
-            # do so by refactoring to use a ContactPresenter shared with both ContactForm and ContactTable
+            selection <=> [contact_presenter, :current_contact]
             
-            # TODO implement right click menu for delete contact
+            menu {
+              menu_item {
+                text '&Delete'
+                
+                on_widget_selected do |event|
+                  contact_presenter.destroy_current_contact
+                end
+              }
+            }
           }
         }
       }
