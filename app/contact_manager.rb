@@ -8,6 +8,8 @@ rescue
   # this runs when packaged as a gem (no bundler)
   require 'glimmer-dsl-swt'
   # add more gems if needed
+  require 'active_record'
+  require 'activerecord-jdbcsqlite3-adapter'
 end
 
 class ContactManager
