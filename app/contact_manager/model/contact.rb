@@ -8,7 +8,8 @@ class Contact < ActiveRecord::Base
   validate :email_or_phone_is_present
   
   def address
-    [street, city, state_or_province, zip_or_postal_code, country].compact.join(', ')
+    address_fields = [street, city, state_or_province, zip_or_postal_code, country]
+    address_fields.map { |field| field.blank? ? nil : field }.compact.join(', ')
   end
   
   private
