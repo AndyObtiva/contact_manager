@@ -24,7 +24,7 @@ class ContactManager
               on_widget_selected do
                 result = message_box(:yes, :no) {
                   text 'Delete All'
-                  message 'Are you sure you want to delete all contacts?'
+                  message 'Are you sure you want to delete all your contacts?'
                 }.open
                 contact_presenter.destroy_all_contacts if result == swt(:yes)
               end

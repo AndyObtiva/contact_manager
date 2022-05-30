@@ -3,6 +3,10 @@
 
 Contact Manager is a Glimmer DSL for SWT sample leveraging SQLite DB via ActiveRecord.
 
+## TODO
+
+[TODO.md](TODO.md)
+
 ## Contributing
 
 -   Check out the latest master to make sure the feature hasn't been

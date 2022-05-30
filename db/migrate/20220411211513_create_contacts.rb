@@ -10,8 +10,8 @@ class CreateContacts < ActiveRecord::Migration[6.1]
       t.string     :street
       t.string     :city
       t.string     :state_or_province
-      t.string     :country
       t.string     :zip_or_postal_code
+      t.string     :country
     end
   end
 end
