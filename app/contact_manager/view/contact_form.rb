@@ -84,7 +84,9 @@ class ContactManager
           
           text field.to_s.gsub('_', ' ').titlecase
         }
-        text {
+        
+        @form_field_texts ||= {}
+        @form_field_texts[field] = text {
           layout_data {
             width_hint 150
             horizontal_alignment :fill
@@ -113,6 +115,7 @@ class ContactManager
             @form_field_labels[error.attribute].tool_tip_text = error.full_message
           end
         end
+        @form_field_texts[:first_name].set_focus
       end
     end
   end
