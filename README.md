@@ -1,7 +1,7 @@
-# Contact Manager
-## Glimmer Application
+# <img src="https://raw.githubusercontent.com/AndyObtiva/contact_manager/master/icons/linux/Contact%20Manager.png" height=85 /> Contact Manager
+##  [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer-dsl-swt/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 
-Contact Manager is a Glimmer DSL for SWT sample leveraging SQLite DB using ActiveRecord.
+Contact Manager is a Glimmer DSL for SWT sample leveraging SQLite DB via ActiveRecord.
 
 ## Contributing
 
@@ -24,3 +24,7 @@ Contact Manager is a Glimmer DSL for SWT sample leveraging SQLite DB using Activ
 [MIT](LICENSE.txt)
 
 Copyright (c) 2022 Andy Maleh. See [LICENSE.txt](LICENSE.txt) for further details.
+
+--
+
+Contact Manager logo was made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](http://www.flaticon.com)
