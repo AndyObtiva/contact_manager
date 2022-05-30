@@ -23,4 +23,8 @@ class ContactRepository
       all
     end
   end
+  
+  def destroy_all_contacts
+    Contact.destroy_all
+  end
 end

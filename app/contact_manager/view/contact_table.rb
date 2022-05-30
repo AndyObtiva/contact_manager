@@ -58,7 +58,7 @@ class ContactManager
               menu_item {
                 text '&Delete'
                 
-                on_widget_selected do |event|
+                on_widget_selected do
                   contact_presenter.destroy_current_contact
                 end
               }

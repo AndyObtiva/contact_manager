@@ -33,7 +33,10 @@ class ContactManager
           image File.join(APP_ROOT, 'icons', 'linux', "Contact Manager.png") unless OS.windows?
           text "Contact Manager"
         
-          contact_manager_menu_bar(about_action: method(:display_about_dialog))
+          contact_manager_menu_bar(
+            contact_presenter: @contact_presenter,
+            about_action: method(:display_about_dialog)
+          )
         
           contact_form(contact_presenter: @contact_presenter) {
             layout_data {

@@ -7,7 +7,7 @@ class ContactPresenter
   attr_accessor :contacts, :query, :current_contact
   
   def initialize
-    self.current_contact = Contact.new
+    renew_current_contact
     self.contacts = ContactRepository.instance.all
     
     # Monitor Contact collection changes
@@ -24,16 +24,24 @@ class ContactPresenter
     self.contacts = ContactRepository.instance.search(query_value)
   end
   
+  def renew_current_contact
+    self.current_contact = Contact.new
+  end
+  
   def save_current_contact
-    current_contact.save.tap do |contact|
-      self.current_contact = Contact.new if contact
+    current_contact.save.tap do |saved|
+      renew_current_contact if saved
     end
   end
   
   def destroy_current_contact
     if current_contact&.persisted?
       current_contact.destroy
-      self.current_contact = Contact.new
+      renew_current_contact
     end
+  end
+  
+  def destroy_all_contacts
+    ContactRepository.instance.destroy_all_contacts
   end
 end
