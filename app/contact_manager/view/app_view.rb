@@ -7,13 +7,11 @@ require 'contact_manager/view/contact_table'
 class ContactManager
   module View
     class AppView
-      include Glimmer::UI::CustomShell
+      include Glimmer::UI::Application
       
       before_body do
         @contact_presenter = ContactPresenter.new
         
-        Display.app_name = 'Contact Manager'
-        Display.app_version = VERSION
         @display = display {
           on_about do
             display_about_dialog

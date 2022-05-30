@@ -7,7 +7,9 @@ class ContactManager
       
       body {
         composite {
-          grid_layout
+          grid_layout {
+            margin_height 0
+          }
           
           text(:search) {
             layout_data {

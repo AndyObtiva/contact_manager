@@ -12,6 +12,7 @@ class ContactManager
             make_columns_equal_width true
             margin_width 0
             margin_height 0
+            vertical_spacing 0
           }
         
           form_column {
