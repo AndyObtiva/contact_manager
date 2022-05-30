@@ -18,8 +18,4 @@ class ContactManager
   LICENSE = File.read(File.join(APP_ROOT, 'LICENSE.txt'))
 end
 
-require 'db/db'
-require 'contact_manager/model/contact'
-require 'contact_manager/model/contact_repository'
-require 'contact_manager/model/contact_presenter'
 require 'contact_manager/view/app_view'
