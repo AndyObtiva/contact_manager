@@ -12,7 +12,6 @@ rescue
   require 'activerecord-jdbcsqlite3-adapter'
 end
 
-
 class ContactManager
   include Glimmer
   
