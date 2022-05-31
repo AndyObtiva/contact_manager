@@ -31,12 +31,7 @@ class ContactManager
           image File.join(APP_ROOT, 'icons', 'linux', "Contact Manager.png") unless OS.windows?
           text "Contact Manager"
         
-          contact_manager_menu_bar(
-            contact_presenter: @contact_presenter,
-            about_action: method(:display_about_dialog)
-          )
-        
-          contact_form(contact_presenter: @contact_presenter) {
+          @contact_form = contact_form(contact_presenter: @contact_presenter) {
             layout_data {
               horizontal_alignment :fill
               grab_excess_horizontal_space true
@@ -51,6 +46,12 @@ class ContactManager
               grab_excess_vertical_space true
             }
           }
+        
+          contact_manager_menu_bar(
+            contact_presenter: @contact_presenter,
+            about_action: method(:display_about_dialog),
+            focus_first_field_action: @contact_form.method(:focus_first_field),
+          )
         }
       }
   

@@ -1,7 +1,7 @@
 # <img src="https://raw.githubusercontent.com/AndyObtiva/contact_manager/master/icons/linux/Contact%20Manager.png" height=85 /> Contact Manager
 ##  [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer-dsl-swt/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 
-Contact Manager is a Glimmer DSL for SWT sample leveraging SQLite DB via ActiveRecord.
+Contact Manager is a [Glimmer DSL for SWT](https://github.com/AndyObtiva/glimmer-dsl-swt) sample leveraging [SQLite DB](https://www.sqlite.org/index.html) via [ActiveRecord](https://rubygems.org/gems/activerecord).
 
 ## TODO
 

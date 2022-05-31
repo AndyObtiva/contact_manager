@@ -115,6 +115,10 @@ class ContactManager
             @form_field_labels[error.attribute].tool_tip_text = error.full_message
           end
         end
+        focus_first_field
+      end
+      
+      def focus_first_field
         @form_field_texts[:first_name].set_focus
       end
     end

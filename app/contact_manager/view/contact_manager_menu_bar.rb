@@ -3,7 +3,7 @@ class ContactManager
     class ContactManagerMenuBar
       include Glimmer::UI::CustomWidget
       
-      options :contact_presenter, :about_action
+      options :contact_presenter, :about_action, :focus_first_field_action
   
       body {
         menu_bar {
@@ -12,9 +12,21 @@ class ContactManager
             
             menu_item {
               text '&New'
+              accelerator :command, :n
               
               on_widget_selected do
                 contact_presenter.renew_current_contact
+                focus_first_field_action.call
+              end
+            }
+            
+            menu_item {
+              text '&Save'
+              accelerator :command, :s
+              
+              on_widget_selected do
+                contact_presenter.save_current_contact
+                focus_first_field_action.call
               end
             }
             
