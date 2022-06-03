@@ -3,7 +3,7 @@
 
 Contact Manager is a [Glimmer DSL for SWT](https://github.com/AndyObtiva/glimmer-dsl-swt) sample leveraging [SQLite DB](https://www.sqlite.org/index.html) via [ActiveRecord](https://rubygems.org/gems/activerecord).
 
-![Contact Manager Screenshot](/screenshots/contact-manager.png)
+![Contact Manager Screenshot](/screenshots/contact-manager.gif)
 
 ## Setup
 
@@ -55,7 +55,7 @@ glimmer "package[dmg]"
 
 ## Software Architecture & Design
 
-Contact Manager follows the [MVP](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) flavor of [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), so the View communicates to the Model via a Presenter, which is an enhanced Controller that enables bidirectional attribute data-binding between the Model and the View.
+Contact Manager follows the [Model-View-Presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) flavor of [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), so the View communicates to the Model via a Presenter, which is an enhanced Controller that enables bidirectional attribute data-binding between the Model and the View.
 
 The View uses `contact_form`, `contact_table`, and `contact_manager_menu_bar` custom widgets (components)
 
@@ -65,7 +65,7 @@ The Model layer includes a `Contact` and `ContactRepository` ([DDD Repository Pa
 
 The Contact Manager graphical user interface leverages the [Master-Detail Interface Pattern](https://en.wikipedia.org/wiki/Master%E2%80%93detail_interface).
 
-The database is stored at `~/db/database.sqlite3` (`~` is the User Home directory)
+The database is stored at `~/db/
 
 ## TODO
 
