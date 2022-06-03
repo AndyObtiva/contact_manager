@@ -52,7 +52,7 @@ class ContactManager
             
             # Ensure converting to Array on read because contacts is an ActiveRecord collection,
             # but an Array object is required by Glimmer DSL for SWT table data-binding logic
-            items <= [contact_presenter, :contacts, on_read: :to_a, column_properties: [:first_name, :last_name, :email, :phone, :address]]
+            items <=> [contact_presenter, :contacts, on_read: :to_a, column_properties: [:first_name, :last_name, :email, :phone, :address]]
             
             selection <=> [contact_presenter, :current_contact, after_write: reset_validations_action]
             
