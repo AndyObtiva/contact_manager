@@ -7,9 +7,23 @@ Contact Manager is a [Glimmer DSL for SWT](https://github.com/AndyObtiva/glimmer
 
 ## Setup
 
-### Clone Project Locally
-
 Start by setting up [JDK 18](https://www.oracle.com/java/technologies/downloads) & [JRuby 9.3.3.0](https://www.jruby.org/) (+ [RVM](http://rvm.io/) on Mac/Linux) just as per [Glimmer DSL for SWT prerequisites](https://github.com/AndyObtiva/glimmer-dsl-swt#pre-requisites).
+
+### Option 2: Install Ruby Gem
+
+Install Ruby gem:
+
+```
+gem install contact_manager
+```
+
+Run:
+
+```
+contact_manager
+```
+
+### Option 3: Clone Project Locally
 
 Clone:
 

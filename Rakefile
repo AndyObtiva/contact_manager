@@ -18,7 +18,7 @@ Juwelier::Tasks.new do |gem|
   gem.homepage = "http://github.com/AndyObtiva/contact_manager"
   gem.license = "MIT"
   gem.summary = %Q{Contact Manager}
-  gem.description = %Q{Contact Manager}
+  gem.description = %Q{Contact Manager is a Glimmer DSL for SWT sample leveraging SQLite DB via ActiveRecord.}
   gem.email = "andy.am@gmail.com"
   gem.authors = ["Andy Maleh"]
 
