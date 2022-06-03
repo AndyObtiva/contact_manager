@@ -1,6 +1,13 @@
 require 'db/db'
 
 class Contact < ActiveRecord::Base
+  STATES = [ 'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA',
+           'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME',
+           'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM',
+           'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
+           'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
+  PROVINCES = ['NL', 'PE', 'NS', 'NB', 'QC', 'ON', 'MB', 'SK', 'AB', 'BC', 'YT', 'NT', 'NU']
+  
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, format: {with: /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i, message: 'must be a valid email address'}, allow_blank: true
@@ -14,6 +21,10 @@ class Contact < ActiveRecord::Base
   
   def country_options
     ['', 'Canada', 'USA']
+  end
+  
+  def state_or_province_options
+    (PROVINCES + [''] + STATES)
   end
   
   private

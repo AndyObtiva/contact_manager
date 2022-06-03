@@ -25,7 +25,7 @@ class ContactManager
           form_column {
             form_field(:street)
             form_field(:city)
-            form_field(:state_or_province)
+            form_field(:state_or_province, editor: :combo, editor_args: :read_only, property: :selection)
             form_field(:zip_or_postal_code)
             form_field(:country, editor: :combo, editor_args: :read_only, property: :selection)
           }
