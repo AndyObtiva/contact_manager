@@ -13,6 +13,8 @@ Contact Manager is a [Glimmer DSL for SWT](https://github.com/AndyObtiva/glimmer
 
 [<img src="https://raw.githubusercontent.com/AndyObtiva/contact_manager/master/icons/linux/Contact%20Manager.png" height=40 /> Contact Manager 1.0.0 (Windows 10.0.19043 x86_64 MSI)](https://www.dropbox.com/s/tan8hbv3qk959t7/Contact%20Manager-1.0.0-x64-Windows-10.0.19043.msi?dl=1)
 
+[<img src="https://raw.githubusercontent.com/AndyObtiva/contact_manager/master/icons/linux/Contact%20Manager.png" height=40 /> Contact Manager 1.0.0 (Linux x86_64 DEB)](https://www.dropbox.com/s/v6pckxcpw4quafx/contact-manager_1.0.0-1_amd64.deb?dl=1)
+
 [<img src="https://raw.githubusercontent.com/AndyObtiva/contact_manager/master/icons/linux/Contact%20Manager.png" height=40 /> Contact Manager 1.0.0 (Linux x86_64 RPM)](https://www.dropbox.com/s/4dby42ux7ebyv6n/contact-manager-1.0.0-1.x86_64.rpm?dl=1)
 
 ### Option 2: Install Ruby Gem
