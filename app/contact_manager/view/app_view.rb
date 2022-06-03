@@ -38,7 +38,10 @@ class ContactManager
             }
           }
           
-          contact_table(contact_presenter: @contact_presenter) {
+          contact_table(
+            contact_presenter: @contact_presenter,
+            reset_validations_action: @contact_form.method(:reset_validations),
+          ) {
             layout_data {
               horizontal_alignment :fill
               grab_excess_horizontal_space true
@@ -50,7 +53,8 @@ class ContactManager
           contact_manager_menu_bar(
             contact_presenter: @contact_presenter,
             about_action: method(:display_about_dialog),
-            focus_first_field_action: @contact_form.method(:focus_first_field),
+            save_contact_action: @contact_form.method(:save_contact),
+            reset_validations_action: @contact_form.method(:reset_validations),
           )
         }
       }

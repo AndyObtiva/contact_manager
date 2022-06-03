@@ -105,17 +105,25 @@ class ContactManager
       
       def save_contact
         if contact_presenter.save_current_contact
-          contact_presenter.current_contact.attributes.keys.each do |attribute_name|
-            @form_field_labels[attribute_name.to_sym]&.foreground = :black
-            @form_field_labels[attribute_name.to_sym]&.tool_tip_text = nil
-          end
+          reset_validations
         else
-          contact_presenter.current_contact.errors.errors.each do |error|
-            @form_field_labels[error.attribute].foreground = :red
-            @form_field_labels[error.attribute].tool_tip_text = error.full_message
-          end
+          show_validations
+        end
+      end
+      
+      def reset_validations
+        contact_presenter.current_contact.attributes.keys.each do |attribute_name|
+          @form_field_labels[attribute_name.to_sym]&.foreground = :black
+          @form_field_labels[attribute_name.to_sym]&.tool_tip_text = nil
         end
         focus_first_field
+      end
+      
+      def show_validations
+        contact_presenter.current_contact.errors.errors.each do |error|
+          @form_field_labels[error.attribute].foreground = :red
+          @form_field_labels[error.attribute].tool_tip_text = error.full_message
+        end
       end
       
       def focus_first_field
