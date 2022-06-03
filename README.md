@@ -63,16 +63,28 @@ Or run with the binary script:
 bin/contact_manager
 ```
 
-You can [package as a native executable](https://github.com/AndyObtiva/glimmer-dsl-swt/blob/master/docs/reference/GLIMMER_PACKAGING_AND_DISTRIBUTION.md) (DMG/PKG/APP on Mac, MSI/EXE on Windows, DEB/RPM on Linux) by running this command:
-
-```
-glimmer package
-```
-
-Or run the following to specify the native package type (e.g. `dmg` on the Mac):
+You can [package a native executable](https://github.com/AndyObtiva/glimmer-dsl-swt/blob/master/docs/reference/GLIMMER_PACKAGING_AND_DISTRIBUTION.md) DMG on Mac:
 
 ```
 glimmer "package[dmg]"
+```
+
+You can [package a native executable](https://github.com/AndyObtiva/glimmer-dsl-swt/blob/master/docs/reference/GLIMMER_PACKAGING_AND_DISTRIBUTION.md) MSI on Windows (assuming you followed [MSI related setup instructions](https://github.com/AndyObtiva/glimmer-dsl-swt/blob/master/docs/reference/GLIMMER_PACKAGING_AND_DISTRIBUTION.md)):
+
+```
+glimmer "package[msi]"
+```
+
+You can [package a native executable](https://github.com/AndyObtiva/glimmer-dsl-swt/blob/master/docs/reference/GLIMMER_PACKAGING_AND_DISTRIBUTION.md) DEB on debian-based Linux distros:
+
+```
+glimmer "package[deb]"
+```
+
+You can [package a native executable](https://github.com/AndyObtiva/glimmer-dsl-swt/blob/master/docs/reference/GLIMMER_PACKAGING_AND_DISTRIBUTION.md) RPM on redhat-based Linux distros:
+
+```
+glimmer "package[rpm]"
 ```
 
 ## Software Architecture & Design
