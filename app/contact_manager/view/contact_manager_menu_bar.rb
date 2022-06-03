@@ -2,6 +2,8 @@ class ContactManager
   module View
     class ContactManagerMenuBar
       include Glimmer::UI::CustomWidget
+
+      ACCELERATOR_KEY = OS.mac? ? :command : :ctrl
       
       options :contact_presenter, :about_action, :save_contact_action, :reset_validations_action
   
@@ -12,16 +14,17 @@ class ContactManager
             
             menu_item {
               text '&New'
-              accelerator :command, :n
+              accelerator ACCELERATOR_KEY, :n
               
               on_widget_selected do
+                contact_presenter.renew_current_contact
                 reset_validations_action.call
               end
             }
             
             menu_item {
               text '&Save'
-              accelerator :command, :s
+              accelerator ACCELERATOR_KEY, :s
               
               on_widget_selected do
                 save_contact_action.call

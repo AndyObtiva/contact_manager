@@ -176,6 +176,7 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
+  universal-java-16
   universal-java-18
 
 DEPENDENCIES
@@ -188,4 +189,4 @@ DEPENDENCIES
   warbler (= 2.0.5)
 
 BUNDLED WITH
-   2.3.12
+   2.3.15
