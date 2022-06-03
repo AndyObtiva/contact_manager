@@ -12,6 +12,10 @@ class Contact < ActiveRecord::Base
     address_fields.map { |field| field.blank? ? nil : field }.compact.join(', ')
   end
   
+  def country_options
+    ['', 'Canada', 'USA']
+  end
+  
   private
   
   def email_or_phone_is_present

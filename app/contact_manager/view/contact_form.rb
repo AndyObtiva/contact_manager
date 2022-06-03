@@ -27,7 +27,7 @@ class ContactManager
             form_field(:city)
             form_field(:state_or_province)
             form_field(:zip_or_postal_code)
-            form_field(:country)
+            form_field(:country, editor: :combo, editor_args: :read_only, property: :selection)
           }
           
           composite { # having a composite ensures padding around button
@@ -75,7 +75,7 @@ class ContactManager
         }
       end
       
-      def form_field(field)
+      def form_field(field, editor: :text, editor_args: [], property: :text)
         @form_field_labels ||= {}
         @form_field_labels[field] = label {
           layout_data {
@@ -86,7 +86,7 @@ class ContactManager
         }
         
         @form_field_texts ||= {}
-        @form_field_texts[field] = text {
+        @form_field_texts[field] = send(editor, *editor_args) {
           layout_data {
             width_hint 150
             horizontal_alignment :fill
@@ -95,7 +95,7 @@ class ContactManager
           
           # use nested data-binding to monitor change of contact
           # in addition to contact field
-          text <=> [contact_presenter, "current_contact.#{field}"]
+          send(property) <=> [contact_presenter, "current_contact.#{field}"]
           
           on_key_pressed do |event|
             save_contact if event.keyCode == swt(:cr)

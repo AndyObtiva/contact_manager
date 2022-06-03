@@ -1,6 +1,5 @@
 # TODO
 
-- Combo box for Country with USA & CANADA only
 - Combo box for State or Province with USA & CANADA values only
 - Zip or Postal Code validation
 - Better Phone validation
