@@ -58,10 +58,14 @@ class ContactManager
             
             menu {
               menu_item {
-                text '&Delete'
+                text '&Delete...'
                 
                 on_widget_selected do
-                  contact_presenter.destroy_current_contact
+                  result = message_box(:yes, :no) {
+                    text 'Delete'
+                    message 'Are you sure you want to delete the selected contact?'
+                  }.open
+                  contact_presenter.destroy_current_contact if result == swt(:yes)
                 end
               }
             }

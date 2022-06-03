@@ -32,7 +32,20 @@ class ContactManager
             }
             
             menu_item {
-              text '&Delete All...'
+              text '&Delete...'
+              accelerator ACCELERATOR_KEY, :d
+              
+              on_widget_selected do
+                result = message_box(:yes, :no) {
+                  text 'Delete'
+                  message 'Are you sure you want to delete the selected contact?'
+                }.open
+                contact_presenter.destroy_current_contact if result == swt(:yes)
+              end
+            }
+            
+            menu_item {
+              text 'Dele&te All...'
               
               on_widget_selected do
                 result = message_box(:yes, :no) {
