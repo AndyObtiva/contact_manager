@@ -1,5 +1,6 @@
-# <img src="https://raw.githubusercontent.com/AndyObtiva/contact_manager/master/icons/linux/Contact%20Manager.png" height=85 /> Contact Manager
+# <img src="https://raw.githubusercontent.com/AndyObtiva/contact_manager/master/icons/linux/Contact%20Manager.png" height=85 /> Contact Manager 1.0.0
 ##  [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer-dsl-swt/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
+[![Gem Version](https://badge.fury.io/rb/contact_manager.svg)](http://badge.fury.io/rb/contact_manager)
 
 Contact Manager is a [Glimmer DSL for SWT](https://github.com/AndyObtiva/glimmer-dsl-swt) sample leveraging [SQLite DB](https://www.sqlite.org/index.html) via [ActiveRecord](https://rubygems.org/gems/activerecord).
 
@@ -24,7 +25,7 @@ Start by setting up [JDK 18](https://www.oracle.com/java/technologies/downloads)
 Install Ruby gem:
 
 ```
-gem install contact_manager
+gem install contact_manager -v1.0.0
 ```
 
 Run:
@@ -109,6 +110,10 @@ The database is stored at `~/db/
 
 [TODO.md](TODO.md)
 
+## Change Log
+
+[CHANGELOG.md](CHANGELOG.md)
+
 ## Contributing
 
 -   Check out the latest master to make sure the feature hasn't been
@@ -132,5 +137,7 @@ The database is stored at `~/db/
 Copyright (c) 2022 Andy Maleh. See [LICENSE.txt](LICENSE.txt) for further details.
 
 --
+
+[<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 />](https://github.com/AndyObtiva/glimmer) Built with [Glimmer DSL for SWT](https://github.com/AndyObtiva/glimmer-dsl-swt) (JRuby Desktop Development GUI Library)
 
 Contact Manager logo was made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](http://www.flaticon.com)
