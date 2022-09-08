@@ -8,20 +8,45 @@ class ContactPresenter
   
   def initialize
     renew_current_contact
-    self.contacts = ContactRepository.instance.all
+    refresh_contacts
     
     # Monitor Contact collection changes
     # the after_commit hook executes the block under a different object
     # binding, so we must use `this` to access self
     this = self
     Contact.after_commit(on: [:create, :update, :destroy]) do
-      this.contacts = ContactRepository.instance.all
+      this.refresh_contacts
     end
   end
   
   def query=(query_value)
     @query = query_value
-    self.contacts = ContactRepository.instance.search(query_value)
+    refresh_contacts
+  end
+  
+  def current_contact=(new_contact)
+    # first, reset current contact in case it was changed but not saved
+    @current_contact&.reset!
+    # next, update current contact
+    @current_contact = new_contact
+  end
+  
+  def refresh_contacts
+    if query
+      new_contacts = ContactRepository.instance.search(query)
+    else
+      new_contacts = ContactRepository.instance.all
+    end
+    
+    if new_contacts != contacts
+      self.contacts = new_contacts.to_a
+      refresh_current_contact
+    end
+  end
+  
+  def refresh_current_contact
+    current_contact_index = contacts.index(current_contact)
+    self.current_contact = contacts[current_contact_index] if current_contact_index
   end
   
   def renew_current_contact

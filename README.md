@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/AndyObtiva/contact_manager/master/icons/linux/Contact%20Manager.png" height=85 /> Contact Manager 1.0.1
+# <img src="https://raw.githubusercontent.com/AndyObtiva/contact_manager/master/icons/linux/Contact%20Manager.png" height=85 /> Contact Manager 1.0.2
 ##  [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer-dsl-swt/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 [![Gem Version](https://badge.fury.io/rb/contact_manager.svg)](http://badge.fury.io/rb/contact_manager)
 
@@ -46,7 +46,7 @@ Start by setting up [JDK 18](https://www.oracle.com/java/technologies/downloads)
 Install Ruby gem:
 
 ```
-gem install contact_manager -v1.0.1
+gem install contact_manager -v1.0.2
 ```
 
 Run:

@@ -28,6 +28,15 @@ class Contact < ActiveRecord::Base
     (PROVINCES + [''] + STATES)
   end
   
+  def reset!
+    return unless persisted? && changed?
+    
+    attributes.each do |attribute, value|
+      # calling attribute writers explicitly notifies Glimmer GUI observers indirectly
+      send("#{attribute}=", send("#{attribute}_was")) if send("#{attribute}_changed?")
+    end
+  end
+  
   private
   
   def email_or_phone_is_present
