@@ -62,7 +62,7 @@ GEM
     glimmer (2.7.3)
       array_include_methods (~> 1.4.0)
       facets (>= 3.1.0, < 4.0.0)
-    glimmer-dsl-swt (4.24.4.1)
+    glimmer-dsl-swt (4.24.4.3)
       concurrent-ruby (>= 1.1.7, < 2.0.0)
       glimmer (~> 2.7.3)
       jruby-win32ole (>= 0.8.5, < 2.0.0)
@@ -183,7 +183,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 6.1.5)
   activerecord-jdbcsqlite3-adapter (~> 61.1)
-  glimmer-dsl-swt (~> 4.24.4.1)
+  glimmer-dsl-swt (~> 4.24.4.3)
   juwelier (= 2.4.9)
   rspec (~> 3.5.0)
   simplecov

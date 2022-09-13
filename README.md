@@ -41,7 +41,7 @@ Learn more in the blog post: [Using ActiveRecord with SQLite DB in a JRuby Deskt
 
 ### Option 2: Install Ruby Gem
 
-Start by setting up [JDK 18](https://www.oracle.com/java/technologies/downloads) & [JRuby 9.3.4.0](https://www.jruby.org/) (+ [RVM](http://rvm.io/) on Mac/Linux) just as per [Glimmer DSL for SWT prerequisites](https://github.com/AndyObtiva/glimmer-dsl-swt#pre-requisites).
+Start by setting up [JDK 18](https://www.oracle.com/java/technologies/downloads) & [JRuby 9.3.7.0](https://www.jruby.org/) (+ [RVM](http://rvm.io/) on Mac/Linux) just as per [Glimmer DSL for SWT prerequisites](https://github.com/AndyObtiva/glimmer-dsl-swt#pre-requisites).
 
 Install Ruby gem:
 
@@ -57,7 +57,7 @@ contact_manager
 
 ### Option 3: Clone Project Locally
 
-Start by setting up [JDK 18](https://www.oracle.com/java/technologies/downloads) & [JRuby 9.3.4.0](https://www.jruby.org/) (+ [RVM](http://rvm.io/) on Mac/Linux) just as per [Glimmer DSL for SWT prerequisites](https://github.com/AndyObtiva/glimmer-dsl-swt#pre-requisites).
+Start by setting up [JDK 18](https://www.oracle.com/java/technologies/downloads) & [JRuby 9.3.7.0](https://www.jruby.org/) (+ [RVM](http://rvm.io/) on Mac/Linux) just as per [Glimmer DSL for SWT prerequisites](https://github.com/AndyObtiva/glimmer-dsl-swt#pre-requisites).
 
 Clone:
 
